@@ -1,34 +1,34 @@
 from node import Node
 
-class Queue:
+class Queue(object):
     
     def __init__(self):
-        head = None
-        tail = None
+        self.head = None
+        self.tail = None
     
-    def remove():
-        if not is_empty():
-            t = head.get_value()
-            head = head.get_next()
-            if head is None:
-                tail = None
+    def remove(self):
+        if not self.is_empty():
+            t = self.head.get_value()
+            self.head = self.head.get_next()
+            if self.head is None:
+                self.tail = None
             return t
         else:
             raise AssertionError("cannot pop empty queue")
     
-    def add(item):
+    def add(self,item):
         end = Node(v=item)
-        if tail is not None:
-            tail.set_next(end)
-        tail = end
-        if head is None:
-            head = tail
+        if self.tail is not None:
+            self.tail.set_next(end)
+        self.tail = end
+        if self.head is None:
+            self.head = self.tail
     
-    def is_empty():
-        return head == None
+    def is_empty(self):
+        return self.head == None
     
-    def peek():
-        if not is_empty():
-            return head.get_value()
+    def peek(self):
+        if not self.is_empty():
+            return self.head.get_value()
         else:
             raise AssertionError("cannot peek at empty queue")

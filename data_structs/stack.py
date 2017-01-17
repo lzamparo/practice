@@ -1,25 +1,27 @@
 from node import Node
 
-class Stack: 
+class Stack(object): 
     
     def __init__(self):
-        top = None
+        self.top = None
         
-    def pop():
-        if top is None:
+    def pop(self):
+        if self.top == None:
             raise AssertionError("cannot pop empty stack")
-        my_top = top
-        top = top.get_next()
+        my_top = self.top
+        self.top = self.top.get_next()
         return my_top.get_value()
     
-    def push(item):
+    def push(self,item):
         new_top = Node(v=item)
-        new_top.set_next(top)
-        top = new_top
+        new_top.set_next(self.top)
+        self.top = new_top
     
-    def peek():
-        return top.get_value()
+    def peek(self):
+        if self.is_empty():
+            raise AssertionError("stack is empty")
+        return self.top.get_value()
     
-    def is_empty():
-        return top == None
+    def is_empty(self):
+        return self.top == None
         
