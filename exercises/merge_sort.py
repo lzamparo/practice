@@ -63,15 +63,15 @@ def wrapper(func, *args, **kwargs):
     return wrapped
         
 if __name__ == "__main__":
-    n = np.random.randint(100)
+    n = np.random.randint(1000)
     unsorted = [i for i in range(n)]
     np.random.shuffle(unsorted)
     
     recursive_wrapped = wrapper(merge_sort_rec, unsorted)
-    print("1000 average timed iterations of recursive mergesort : ", timeit.timeit(recursive_wrapped, number=1000))      
+    print("1000 average timed iterations of recursive mergesort : ", timeit.timeit(recursive_wrapped, number=100))      
     
     iterative_wrapped = wrapper(merge_sort_iterative, unsorted)
-    print("1000 average timed iterations of iterative mergesort : ", timeit.timeit(iterative_wrapped, number=1000))
+    print("1000 average timed iterations of iterative mergesort : ", timeit.timeit(iterative_wrapped, number=100))
     
         
     

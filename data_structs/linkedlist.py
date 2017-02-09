@@ -33,7 +33,7 @@ class LinkedList:
     # Causes an infinite loop after reversing?
     def print_list(self):
         if (self.head == None):
-            print "[]"
+            print("[]")
         else:
             der_string = "["
             temp = self.head
@@ -43,6 +43,6 @@ class LinkedList:
                     der_string += ","
                 temp = temp.get_next()
             der_string += "]"
-            print der_string
+            print(der_string)
             
             

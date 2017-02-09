@@ -137,9 +137,10 @@ class Dict(object):
     
     __slots__ = ("filled","used","mask","table")
     
-    def __init__(self, args, **kwargs):
+    def __init__(self, args=None, **kwargs):
         self.init()
-        self._update(arg, kwargs)
+        if args or kwargs:
+            self._update(args, kwargs)
     
     def init(self):
         ''' Initialize an empty dict '''
@@ -410,7 +411,6 @@ class Dict(object):
                 raise ValueError("{0!r} doesn't have a length of 2".format(
                     double))
             self[double[0]] = double[1]
-        pass
 
     def _update(self, arg, kwargs):
         ''' Internal method to update a dict from a mapping or sequence object '''
@@ -421,7 +421,6 @@ class Dict(object):
                 self._from_sequence(arg)
         if kwargs:
             self._merge(kwargs)
-        pass
 
     def update(self, arg=None, **kwargs):
         """
@@ -445,3 +444,15 @@ class Dict(object):
     def __repr__(self):
         r = ["{0!r} : {1!r}".format(k, v) for k, v in self.iteritems()]
         return "Dict({" + ", ".join(r) + "})"
+    
+    
+if __name__ == "__main__":
+    regular_dict = {'a': 1, 'b': 2, 'c': 3}
+    #my_args = [('a',1),('b',2),('c',3)]
+    #my_dict = Dict(my_args)
+    my_dict = Dict()
+    my_dict['a'] = 1
+    my_dict['b'] = 2
+    my_dict['c'] = 3
+    
+    
