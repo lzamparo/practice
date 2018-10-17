@@ -10,14 +10,6 @@ def merge_sort_rec(my_array):
     right = merge_sort_rec(my_array[middle:])
     return rec_merge(left,right)
 
-def merge_sort_iterative(my_array):
-    if len(my_array) <= 1:
-        return my_array
-    middle = len(my_array) // 2
-    left = merge_sort_iterative(my_array[:middle])
-    right = merge_sort_iterative(my_array[middle:])
-    return iterative_merge(left,right)    
-
 def rec_merge(left, right):
     ''' Repeatedly merge sorted sublists to produce a larger sorted list  
     n.b lists of length 1 is sorted.
@@ -29,7 +21,15 @@ def rec_merge(left, right):
     if left[0] < right[0]:
         return [left[0]] + rec_merge(left[1:], right)
     return [right[0]] + rec_merge(left, right[1:])
-    
+
+def merge_sort_iterative(my_array):
+    if len(my_array) <= 1:
+        return my_array
+    middle = len(my_array) // 2
+    left = merge_sort_iterative(my_array[:middle])
+    right = merge_sort_iterative(my_array[middle:])
+    return iterative_merge(left,right)    
+ 
 def iterative_merge(left, right):
     ''' Repeatedly merge sorted sublists left, right '''
     i,j = 0,0
